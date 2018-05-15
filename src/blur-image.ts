@@ -1,9 +1,12 @@
-import {inject} from 'aurelia-framework';
+import {autoinject} from 'aurelia-framework';
 
+@autoinject
 export class BlurImageCustomAttribute {
-  constructor(@inject(Element) public element: Element) {}
+  constructor(private element: Element) {
+    this.element = element;
+  }
 
-  valueChanged(newImage: HTMLImageElement) {
+  public valueChanged(newImage: HTMLImageElement) {
     if (newImage.complete) {
       drawBlur(this.element, newImage);
     } else {
@@ -12,7 +15,7 @@ export class BlurImageCustomAttribute {
   }
 }
 
-/* eslint-disable */
+/* tslint:disable */
 
 /*
 This Snippet is using a modified Stack Blur js lib for blurring the header images.
@@ -98,17 +101,18 @@ var shg_table = [
 
 var BLUR_RADIUS = 40;
 
-function stackBlurCanvasRGBA( canvas, top_x, top_y, width, height, radius ) {
+function stackBlurCanvasRGBA( canvas, top_x, top_y, width, height, radius )
+{
 	if ( isNaN(radius) || radius < 1 ) return;
 	radius |= 0;
 
-	var context = canvas.getContext('2d');
+	var context = canvas.getContext("2d");
 	var imageData;
 
 	try {
 	  imageData = context.getImageData( top_x, top_y, width, height );
 	} catch(e) {
-	  throw new Error('unable to access image data: ' + e);
+    throw new Error("unable to access image data: " + e);
 	}
 
 	var pixels = imageData.data;
@@ -142,7 +146,8 @@ function stackBlurCanvasRGBA( canvas, top_x, top_y, width, height, radius ) {
 	var mul_sum = mul_table[radius];
 	var shg_sum = shg_table[radius];
 
-	for ( y = 0; y < height; y++ ) {
+	for ( y = 0; y < height; y++ )
+	{
 		r_in_sum = g_in_sum = b_in_sum = a_in_sum = r_sum = g_sum = b_sum = a_sum = 0;
 
 		r_out_sum = radiusPlus1 * ( pr = pixels[yi] );
@@ -157,7 +162,8 @@ function stackBlurCanvasRGBA( canvas, top_x, top_y, width, height, radius ) {
 
 		stack = stackStart;
 
-		for( i = 0; i < radiusPlus1; i++ ) {
+		for( i = 0; i < radiusPlus1; i++ )
+		{
 			stack.r = pr;
 			stack.g = pg;
 			stack.b = pb;
@@ -165,7 +171,8 @@ function stackBlurCanvasRGBA( canvas, top_x, top_y, width, height, radius ) {
 			stack = stack.next as BlurStack;
 		}
 
-		for( i = 1; i < radiusPlus1; i++ ) {
+		for( i = 1; i < radiusPlus1; i++ )
+    {
 			p = yi + (( widthMinus1 < i ? widthMinus1 : i ) << 2 );
 			r_sum += ( stack.r = ( pr = pixels[p])) * ( rbs = radiusPlus1 - i );
 			g_sum += ( stack.g = ( pg = pixels[p+1])) * rbs;
@@ -182,7 +189,8 @@ function stackBlurCanvasRGBA( canvas, top_x, top_y, width, height, radius ) {
 
 		stackIn = stackStart;
 		stackOut = stackEnd;
-		for ( x = 0; x < width; x++ ) {
+		for ( x = 0; x < width; x++ )
+    {
 			pixels[yi+3] = pa = (a_sum * mul_sum) >> shg_sum;
 			if ( pa != 0 )
 			{
@@ -253,7 +261,8 @@ function stackBlurCanvasRGBA( canvas, top_x, top_y, width, height, radius ) {
 
 		stack = stackStart;
 
-		for( i = 0; i < radiusPlus1; i++ ) {
+		for( i = 0; i < radiusPlus1; i++ )
+		{
 			stack.r = pr;
 			stack.g = pg;
 			stack.b = pb;
@@ -288,7 +297,8 @@ function stackBlurCanvasRGBA( canvas, top_x, top_y, width, height, radius ) {
 		yi = x;
 		stackIn = stackStart;
 		stackOut = stackEnd;
-		for ( y = 0; y < height; y++ ) {
+		for ( y = 0; y < height; y++ )
+		{
 			p = yi << 2;
 			pixels[p+3] = pa = (a_sum * mul_sum) >> shg_sum;
 			if ( pa > 0 )
@@ -340,7 +350,8 @@ function stackBlurCanvasRGBA( canvas, top_x, top_y, width, height, radius ) {
 
 }
 
-class BlurStack {
+class BlurStack
+{
 	r = 0;
 	g = 0;
 	b = 0;

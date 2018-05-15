@@ -59,10 +59,13 @@ typings/
 
 # Aurelia
 node_modules
+jspm_packages
+bower_components
+.idea
 .DS_STORE
-npm-debug.log*
-yarn-error.log
 /dist
-/test/*coverage
-/test/coverage*
-/.chrome
+build/reports
+coverage
+test/e2e/dist
+/typings
+/export
