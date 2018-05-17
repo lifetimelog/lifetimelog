@@ -1,5 +1,5 @@
 import {Router, RouterConfiguration} from 'aurelia-router';
-import * as CONSTANTS from './lib/constants';
+import * as CONSTANTS from 'lib/constants';
 
 export class App
 {
