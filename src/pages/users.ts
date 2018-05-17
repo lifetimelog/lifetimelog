@@ -3,11 +3,13 @@ import {HttpClient} from 'aurelia-fetch-client';
 import 'fetch';
 
 @autoinject
-export class Users {
+export class Users
+{
   public heading = 'Github Users';
   public users = [];
 
-  constructor(private http: HttpClient) {
+  constructor(private http: HttpClient)
+  {
     http.configure(config => {
       config
         .useStandardConfiguration()
@@ -15,7 +17,8 @@ export class Users {
     });
   }
 
-  public activate() {
+  public activate()
+  {
     return this.http.fetch('users')
       .then(response => response.json())
       .then(users => this.users = users as any);
