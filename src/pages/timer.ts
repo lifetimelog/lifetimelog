@@ -1,4 +1,4 @@
-import {DbHandler} from 'handler/db-handler';
+import {DbHandler} from 'handler';
 
 class Timer
 {
