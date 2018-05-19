@@ -1,0 +1,15 @@
+<template>
+  <require from="pages/timer.css"></require>
+
+  <section class="au-animate">
+
+    <center><h1>Admin</h1></center>
+    
+    <div>
+      <div repeat.for="timer of timers">
+        ${timer.date} ${timer.timer}
+      </div>
+    </div>
+
+  </section>
+</template>
