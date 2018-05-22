@@ -1,0 +1,28 @@
+<template>
+  <require from="pages/admin-page.css"></require>
+
+  <section class="au-animate">
+
+    <center><h1>Admin</h1></center>
+    
+    <div>
+      <h4>Timers</h4>
+      <div repeat.for="timer of dbHandler.timers">
+        ${timer.guid} ${timer.name} ${timer.color}
+      </div>
+      <h4>User</h4>
+      <div repeat.for="timer of dbHandler.user">
+        ${timer.guid} ${timer.name} ${timer.color}
+      </div>
+      <h4>Environment</h4>
+      <div repeat.for="timer of dbHandler.envionment">
+        ${timer.guid} ${timer.name} ${timer.color}
+      </div>
+      <h4>Timestamps</h4>
+      <div repeat.for="timer of dbHandler.timestamps">
+        ${timer.guid} ${timer.name} ${timer.color}
+      </div>
+    </div>
+
+  </section>
+</template>
