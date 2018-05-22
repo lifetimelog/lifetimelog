@@ -2,6 +2,8 @@ import {autoinject} from 'aurelia-framework';
 import {HttpClient} from 'aurelia-fetch-client';
 import 'fetch';
 
+import { DbHandler } from 'handler/db-handler';
+
 @autoinject
 export class Admin
 {
@@ -12,8 +14,10 @@ export class Admin
  public user;
  public timers;
 
-  constructor(private http: HttpClient)
-  {
+  constructor(
+    private http: HttpClient,
+    private dbHandler: DbHandler
+  ) {
     /*
     http.configure(config => {
       config

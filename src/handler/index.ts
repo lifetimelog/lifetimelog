@@ -1,1 +1,1 @@
-export * from 'handler/db-handler.ts';
+export * from 'handler/db-handler';

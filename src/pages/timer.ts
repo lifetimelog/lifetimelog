@@ -1,5 +1,3 @@
-import {DbHandler} from 'handler';
-
 class Timer
 {
     private today = new Date();

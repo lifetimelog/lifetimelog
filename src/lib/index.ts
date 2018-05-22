@@ -1,1 +1,1 @@
-export * from 'lib/blur-image.ts';
+export * from 'lib/blur-image';
