@@ -1,3 +1,4 @@
+import { EventAggregator } from 'aurelia-event-aggregator';
 import { autoinject } from 'aurelia-framework';
 
 import { StateHandler } from 'handler/state-handler';
@@ -11,19 +12,17 @@ export class TimerPage
 
     constructor(
       private stateHandler: StateHandler,
-      private configuration: Configuration
+      private configuration: Configuration,
+      private eventAggregator: EventAggregator
     ) {
-      /*
-      http.configure(config => {
-        config
-          .useStandardConfiguration()
-          .withBaseUrl('https://api.github.com/');
+      this.eventAggregator.subscribe('myEvent', (event) => {
+        console.log(event);
       });
-      */
-     stateHandler.updateTimer(new Timer('blue', 'blue'));
-     stateHandler.updateTimer(new Timer('blue', 'orange'));
-     stateHandler.updateTimer(new Timer('blue', 'red'));
-     stateHandler.updateTimer(new Timer('blue', 'green'));
+      this.eventAggregator.publish('myEvent', 'myData');
+    //  console.log(new Timer('blue', 'blue'));
+    //  console.log(new Timer('orange', 'orange'));
+    //  console.log(new Timer('red', 'red'));
+    //  console.log(new Timer('green', 'green'));
     }
 
     private startTimer(timer)
@@ -32,6 +31,11 @@ export class TimerPage
     }
 
     private stopTimer()
+    {
+
+    }
+
+    private addTimer()
     {
 
     }

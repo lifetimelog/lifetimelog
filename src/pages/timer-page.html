@@ -7,13 +7,13 @@
       <div class="duration" style="background: ${timer.color}">0:00</div>
       <div class="name">${timer.name}</div>
       <div class="clock">
-          <button class="button" click.delegate="startTimer('yes')"><i class="fa fa-clock-o fa-2x"></i></button>
+          <button class="button" click.delegate="startTimer(timer)"><i class="fa fa-clock-o fa-2x"></i></button>
       </div>
     </div>
     <div class="timer">
         <div class="name">${configuration.language.timerPage.addNewTimer}</div>
         <div class="clock">
-            <button class="button" click.delegate="startTimer('yes')"><i class="fa fa-clock-o fa-2x"></i></button>
+            <button class="button" click.delegate="addTimer()"><i class="fa fa-plus fa-2x"></i></button>
         </div>
       </div>
   </section>

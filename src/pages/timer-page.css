@@ -3,8 +3,7 @@
   display: flex;
   flex-wrap: nowrap;
   height: 60px;
-  vertical-align:
-  middle;
+  vertical-align: middle;
   border-top: 1px solid lightgrey;
   padding: 5px;
 }
@@ -27,13 +26,14 @@
 .timer .button
 {
   margin: 5px 0px;
-  height: 40px;
   width: 40px;
-  background: lightgrey;
-  border: none;
-  color: white;
   text-align: center;
-  text-decoration: none;
-  cursor: pointer;
+  height: 40px;
+  line-height: 50px;
   border-radius: 20px;
+  border: none;
+  text-decoration: none;
+  background: lightgrey;
+  color: white;
+  cursor: pointer;
 }
