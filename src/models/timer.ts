@@ -1,22 +1,33 @@
-export class Timer
+import { autoinject } from 'aurelia-framework';
+import { StateHandler } from 'handler/state-handler';
+import { DataModel } from 'models';
+
+@autoinject
+export class Timer extends DataModel
 {
   public guid;
   public name;
   public color;
 
-  constructor(name, color)
+  constructor( name, color )
   {
-    this.guid = this.uuidv4();
+    super();
+
+
+
+    
+    // this.guid = StateHandler.uuidv4();
     this.name = name;
     this.color = color;
   }
 
-  private uuidv4()
+  public update()
   {
-    return 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, function(c) {
-      let r = Math.random() * 16 | 0;
-      let v = c === 'x' ? r : (r & 0x3 | 0x8);
-      return v.toString(16);
-    });
+
+  }
+
+  public delete()
+  {
+
   }
 }
