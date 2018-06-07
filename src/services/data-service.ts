@@ -1,15 +1,14 @@
-import { HttpClient, json } from 'aurelia-fetch-client';
-import { EventAggregator } from 'aurelia-event-aggregator';
-import { autoinject } from "aurelia-framework";
+// import { HttpClient, json } from 'aurelia-fetch-client';
+// import { EventAggregator } from 'aurelia-event-aggregator';
+// import { autoinject } from "aurelia-framework";
 
-@autoinject
+// @autoinject
 export class DataService {
 
   constructor(
-    // private http: HttpClient,
-    private eventAggregator: EventAggregator
-  ) {
-  }
+    // private httpClient: HttpClient,
+    // private eventAggregator: EventAggregator
+  ) {}
 
   public save(object){
     if (object.isNew) {

@@ -1,4 +1,4 @@
-import { DataService } from 'services';
+import { DataService } from 'services/data-service';
 
 export class GuidService extends DataService
 {

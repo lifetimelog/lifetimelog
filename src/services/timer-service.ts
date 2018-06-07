@@ -1,5 +1,4 @@
-import { DataService } from 'services';
-import { Timer } from 'models';
+import { DataService } from 'services/data-service';
 
 export class TimerService extends DataService {
 
