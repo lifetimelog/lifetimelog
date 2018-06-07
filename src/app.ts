@@ -9,11 +9,13 @@ export class App
   {
     config.title = CONSTANTS.apptitle;
     config.map([
+      /* tslint:disable */
       { route: ['', 'welcome'], name: 'welcome',      moduleId: 'aurelia-template/welcome',      nav: true, title: 'Welcome' },
       { route: 'users',         name: 'users',        moduleId: 'aurelia-template/users',        nav: true, title: 'Github Users' },
       { route: 'child-router',  name: 'child-router', moduleId: 'aurelia-template/child-router', nav: true, title: 'Child Router' },
-      { route: 'timer',         name: 'timer',        moduleId: 'pages/timer-page',   nav: true, title: 'Timer' },
-      { route: 'admin',         name: 'admin',        moduleId: 'pages/admin-page',        nav: true, title: 'Admin' }
+      { route: 'timer',         name: 'timer',        moduleId: 'pages/timer-page',              nav: true, title: 'Timer' },
+      { route: 'admin',         name: 'admin',        moduleId: 'pages/admin-page',              nav: true, title: 'Admin' }
+      /* tslint:enable */
     ]);
 
     this.router = router;
