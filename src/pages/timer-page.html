@@ -4,7 +4,7 @@
   <section class="au-animate">
     <center><h1>${today.toLocaleDateString()}</h1></center>
     <div class="timer" repeat.for="timer of stateHandler.timers">
-      <div class="duration" style="background: ${timer.color}">0:00</div>
+      <div class="duration" css="background: ${timer.color}">0:00</div>
       <div class="name">${timer.name}</div>
       <div class="clock">
           <button class="button" click.delegate="startTimer(timer)"><i class="fa fa-clock-o fa-2x"></i></button>
