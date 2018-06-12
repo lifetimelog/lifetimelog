@@ -9,7 +9,7 @@ export class TimelineCustomElement {
   private today = Math.floor(Date.now() / DAY) * DAY + this.timezoneOffset * MINUTE;
   private clockInterval;
   private now = Date.now();
-  private scale = 30000;
+  private scale = 10000;
   private timelineElement;
   private markers = [];
 

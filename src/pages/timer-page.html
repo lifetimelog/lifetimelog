@@ -12,7 +12,7 @@
       <div class="duration" css="background: ${timer.color}">0:00</div>
       <div class="name">${timer.name}</div>
       <div class="clock">
-          <button class="button" click.delegate="startTimer(timer)"><i class="fa fa-clock-o fa-2x"></i></button>
+          <button class="button" css="background: ${currentCounter.timer == timer ? timer.color : 'lightgrey'}" click.delegate="toggleTimer(timer)"><i class="fa fa-clock-o fa-2x"></i></button>
       </div>
     </div>
 

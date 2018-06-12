@@ -13,7 +13,7 @@ export class DataService {
   ) {}
 
   protected save(object) {
-    if (this.stateService.state[this.path].find(element => element.guid === object.guid)) {
+    if (this.stateService.state[this.path].find(element => object.guid && element.guid === object.guid)) {
       this.update(object);
     } else {
       object.guid = this.newGuid();

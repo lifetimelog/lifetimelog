@@ -1,6 +1,7 @@
 import { DataModel } from 'models/data-model';
 
 export class Timer extends DataModel {
+
   public color;
   public name;
 

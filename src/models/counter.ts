@@ -1,5 +1,6 @@
 import { DataModel } from 'models/data-model';
 import { Timer } from 'models/timer';
+import { autoinject } from 'aurelia-framework';
 
 export class Counter extends DataModel {
 
@@ -12,6 +13,8 @@ export class Counter extends DataModel {
 
   constructor(options?) {
     super();
+    // ToDo: only counterService should create new Counters to make shure counters don't overlap or run simultaneous
+
     // ToDo: check that this timeslot isn't already taken by another counter
     // ToDo: if this is not the last timer and no end is defined, this.end = Math.ceil(this.start / (15 * 60 * 1000)) * (15 * 60 * 1000);
     // ToDo: if a counter is still running and this is the new last timer, end the one still running
