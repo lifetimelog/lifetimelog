@@ -1,23 +1,11 @@
+import { Timer } from 'models/timer';
 import { DataService } from 'services/data-service';
 
 export class TimerService extends DataService {
 
-  private basePath = '';
+  protected path = 'timers';
 
-  public remove(timer){
-    // super.delete(timer);
+  public save(timer: Timer) {
+    super.save(Object.assign(new Timer(), timer));
   }
-
-  public getNew(){}
-
-  public getAll(){}
-
-  public save(timer){
-    if (timer.new) {
-      // super.create(timer);
-    } else {
-      // super.update(timer);
-    }
-  }
-
 }

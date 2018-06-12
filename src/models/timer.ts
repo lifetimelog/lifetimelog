@@ -1,33 +1,12 @@
-import { autoinject } from 'aurelia-framework';
-import { StateHandler } from 'handler/state-handler';
-import { DataModel } from 'models';
+import { DataModel } from 'models/data-model';
 
-@autoinject
-export class Timer extends DataModel
-{
-  public guid;
-  public name;
+export class Timer extends DataModel {
   public color;
+  public name;
 
-  constructor( name, color )
-  {
+  constructor(name?: String, color?: String) {
     super();
-
-
-
-    
-    // this.guid = StateHandler.uuidv4();
-    this.name = name;
-    this.color = color;
-  }
-
-  public update()
-  {
-
-  }
-
-  public delete()
-  {
-
+    this.name = name || 'Timer';
+    this.color = color || 'lightgrey';
   }
 }

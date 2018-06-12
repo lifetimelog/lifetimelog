@@ -1,4 +1,3 @@
-export abstract class DataModel
-{
+export abstract class DataModel {
   public guid: String;
 }

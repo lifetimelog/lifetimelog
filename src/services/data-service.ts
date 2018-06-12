@@ -1,41 +1,59 @@
+import { StateService } from 'services/state-service';
 // import { HttpClient, json } from 'aurelia-fetch-client';
 // import { EventAggregator } from 'aurelia-event-aggregator';
-// import { autoinject } from "aurelia-framework";
+import { autoinject } from 'aurelia-framework';
 
-// @autoinject
+@autoinject
 export class DataService {
 
+  protected path = '';
+
   constructor(
-    // private httpClient: HttpClient,
-    // private eventAggregator: EventAggregator
+    private stateService: StateService
   ) {}
 
-  public save(object){
-    if (object.isNew) {
-      this.create(object);
-    } else {
+  protected save(object) {
+    if (this.stateService.state[this.path].find(element => element.guid === object.guid)) {
       this.update(object);
+    } else {
+      object.guid = this.newGuid();
+      this.create(object);
     }
   }
 
-  public getAll(){}
+  // public getAll(){}
 
-  public getList() {}
+  // public getList() {}
 
-  public getSingle() {}
+  // public getSingle() {}
 
-  public getNew() {}
+  // public getFile() {}
 
-  public getFile() {}
+  // private retrieve(id?, obtions?) {}
 
-  private path = '';
+  private update(object) {
+    this.stateService.state[this.path] = this.stateService.state[this.path].filter(element => element.guid !== object.guid);
+    this.stateService.state[this.path].push(object);
+  }
 
-  private create(object){}
+  private create(object) {
+    this.stateService.state[this.path].push(object);
+  }
 
-  private retrieve(id?, obtions?){}
+  // private delete(object) {
+  //   this[this.path] = this[this.path].filter(element => element.guid !== object.guid);
+  // }
 
-  private update(object){}
-
-  private delete(object){}
-
+  private newGuid() {
+    let guid;
+    // check for ressource: Server -> Cache (State) -> local Database
+    do {
+      guid = 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, function(c) {
+        let r = Math.random() * 16 | 0;
+        let v = c === 'x' ? r : (r & 0x3 | 0x8);
+        return v.toString(16);
+      });
+    } while (Object.keys(this.stateService.state).some(key => this.stateService.state[key].find(element => element.guid === guid)));
+    return guid;
+  }
 }
