@@ -1,20 +1,16 @@
 <template>
   <require from="components/timeline.css"></require>
 
-  <div id="timeline">
-    <div id="scale" css="min-width: 100%; width: ${(nextHour - today) / 90000}px; background: teal; height: 20px;"></div>
+  <div id="timeline" ref="timelineElement">
+    <div id="now" css="left: ${(now - today) / scale}px;"></div>
+    <div id="scale" css="width: ${(now + 60*60*1000 - today) / scale}px;">
+      <div class="scalemarkline" repeat.for="marker of markers" css="left: ${marker.time / scale}px; background: ${marker.color};">
+        <span class="scalemarktext">${marker.text}</span>
+      </div>
+    </div>
     <div id="countercontainer">
-        <div class="counter"
-          repeat.for="counter of stateService.state.counters"
-          css="
-            position: absolute;
-            left: ${(counter.start - today) / 90000}px;
-            width: ${(counter.end - counter.start) / 90000}px;
-            height: 50px;
-            overflow: hidden;
-            background: ${counter.timer.color};"
-        >
-          a counter, start: ${counter.start}, end: ${counter.end}
+        <div class="counter" repeat.for="counter of stateService.state.counters" css="left: ${(counter.start - today) / scale}px; width: ${(counter.end - counter.start) / scale}px; background: ${counter.timer.color};">
+          ${counter.timer.name}
         </div>
     </div>
   </div>
