@@ -1,6 +1,21 @@
 <template>
-  <div style="width: 100%; height: 50px; background: teal;">
-    <div style="position: absolute;" repeat.for="counter of counters">${counter.color}</div>
+  <require from="components/timeline.css"></require>
+
+  <div id="timeline">
+    <div id="scale" css="min-width: 100%; width: ${(nextHour - today) / 90000}px; background: teal; height: 20px;"></div>
+    <div id="countercontainer">
+        <div class="counter"
+          repeat.for="counter of stateService.state.counters"
+          css="
+            position: absolute;
+            left: ${(counter.start - today) / 90000}px;
+            width: ${(counter.end - counter.start) / 90000}px;
+            height: 50px;
+            overflow: hidden;
+            background: ${counter.timer.color};"
+        >
+          a counter, start: ${counter.start}, end: ${counter.end}
+        </div>
+    </div>
   </div>
-  this is the timeline
 </template>

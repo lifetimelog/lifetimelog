@@ -1,7 +1,13 @@
+import { Counter } from 'models/counter';
+import { CounterService } from 'services/counter-service';
+import { StateService } from 'services/state-service';
 import { TimerService } from 'services/timer-service';
+
+import { Timer } from 'models/timer';
+
 import { autoinject } from 'aurelia-framework';
 
-import { StateHandler } from 'handler/state-handler';
+// import { StateService } from 'services/state-service';
 // import { Timer } from 'models/timer';
 
 @autoinject
@@ -10,28 +16,20 @@ export class TimerPage
     private today;
 
     constructor(
-      private stateHandler: StateHandler,
-      private timerService: TimerService
+      private stateService: StateService,
+      private timerService: TimerService,
+      private counterService: CounterService
     ) {
       this.today = new Date();
-    //  console.log(new Timer('blue', 'blue'));
-    //  console.log(new Timer('orange', 'orange'));
-    //  console.log(new Timer('red', 'red'));
-    //  console.log(new Timer('green', 'green'));
     }
 
-    private startTimer(timer)
-    {
-      // this.timers.push({date: new Date(), timer: timer});
+    private startTimer(timer: Timer) {
+      // this.counterService.save(new Counter({timer: timer}));
     }
 
-    private stopTimer()
-    {
+    private stopTimer() {}
 
-    }
-
-    private addTimer()
-    {
-
+    private addTimer() {
+      this.timerService.save(new Timer('Neuer Timer', 'red'));
     }
 }

@@ -1,4 +1,4 @@
-import { StateHandler } from 'handler/state-handler';
+import { StateService } from 'services/state-service';
 
 export class AdminPage
 {
@@ -8,7 +8,7 @@ export class AdminPage
   */
 
   constructor(
-    private stateHandler: StateHandler
+    private stateService: StateService
   ) {
     
   }

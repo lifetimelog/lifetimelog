@@ -7,20 +7,20 @@
     
     <div>
       <h4>Timers</h4>
-      <div repeat.for="timer of dbHandler.timers">
+      <div repeat.for="timer of stateService.timers">
         ${timer.guid} ${timer.name} ${timer.color}
       </div>
       <h4>User</h4>
-      <div repeat.for="timer of dbHandler.user">
-        ${timer.guid} ${timer.name} ${timer.color}
+      <div repeat.for="user of stateService.users">
+        ${user.guid} ${user.name} ${user.color}
       </div>
       <h4>Environment</h4>
-      <div repeat.for="timer of dbHandler.envionment">
-        ${timer.guid} ${timer.name} ${timer.color}
+      <div repeat.for="envionment of stateService.envionments">
+        ${envionment.guid} ${envionment.name} ${envionment.color}
       </div>
       <h4>Timestamps</h4>
-      <div repeat.for="timer of dbHandler.timestamps">
-        ${timer.guid} ${timer.name} ${timer.color}
+      <div repeat.for="timestamp of stateService.timestamps">
+        ${timestamp.guid} ${timestamp.name} ${timestamp.color}
       </div>
     </div>
 
