@@ -1,5 +1,5 @@
-import {Router, RouterConfiguration} from 'aurelia-router';
-import * as CONSTANTS from 'lib/constants';
+import { Router, RouterConfiguration } from 'aurelia-router';
+import { APPTITLE } from 'lib/constants';
 
 export class App
 {
@@ -7,7 +7,7 @@ export class App
 
   public configureRouter(config: RouterConfiguration, router: Router)
   {
-    config.title = CONSTANTS.apptitle;
+    config.title = APPTITLE;
     config.map([
       /* tslint:disable */
       { route: ['', 'welcome'], name: 'welcome',      moduleId: 'aurelia-template/welcome',      nav: true, title: 'Welcome' },
