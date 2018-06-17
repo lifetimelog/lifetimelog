@@ -14,6 +14,8 @@ export class App
       { route: 'users',         name: 'users',        moduleId: 'aurelia-template/users',        nav: true, title: 'Github Users' },
       { route: 'child-router',  name: 'child-router', moduleId: 'aurelia-template/child-router', nav: true, title: 'Child Router' },
       { route: 'timer',         name: 'timer',        moduleId: 'pages/timer-page',              nav: true, title: 'Timer' },
+      { route: 'month',         name: 'month',        moduleId: 'pages/month-view',              nav: true, title: 'Month' },
+      { route: 'year',          name: 'year',         moduleId: 'pages/year-view',               nav: true, title: 'Year' },
       { route: 'admin',         name: 'admin',        moduleId: 'pages/admin-page',              nav: true, title: 'Admin' }
       /* tslint:enable */
     ]);
